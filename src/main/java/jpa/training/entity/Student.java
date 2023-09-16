@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 public class Student {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
 	@Column(name="s_name")
@@ -31,6 +31,11 @@ public class Student {
 		this.name = name;
 		this.fees = fees;
 		this.age = age;
+	}
+	
+	public Student(int id, String name, int fees, int age) {
+		this(name, fees, age);
+		this.id=id;
 	}
 
 	@Override
