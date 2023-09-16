@@ -3,6 +3,7 @@ package jpa.training;
 import java.util.List;
 
 import jpa.training.dao.StudentRepo;
+import jpa.training.entity.Address;
 import jpa.training.entity.Student;
 
 public class Runner {
@@ -10,24 +11,17 @@ public class Runner {
 	
 	public static void main(String[] args) {
 		save();
-//		stuRepo.findAndUpdate(1);
-//		stuRepo.findAndDelete(3);
-//		System.out.println("Operation completed");
-//		
 		List<Student> findAll = stuRepo.findAll();
 		findAll.forEach(System.out::println);
-		System.out.println("..........");
+		System.out.println("Operation completed");
 	}
 
 	private static void save() {
-		Student stu1 = new Student("Raghav",2400,24);
-		Student stu2 = new Student("Aditya",2500,25);
-		Student stu3 = new Student("Aman",2600,26);
+		Address add1 = new Address("street","city");
+		// No need to persist in db as it is cascade.all
+		Student stu1 = new Student("Gaurav",2400,24);
+		stu1.setAddress(add1); 
 		stuRepo.persist(stu1);
 		System.out.println("Successully save in db" + stu1);
-		stuRepo.persist(stu2);
-		System.out.println("Successully save in db" + stu2);
-		stuRepo.persist(stu3);
-		System.out.println("Successully save in db" + stu3);
 	}
 }

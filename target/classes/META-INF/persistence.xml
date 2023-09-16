@@ -5,18 +5,14 @@
 	version="3.0">
 	<persistence-unit name="default-mysql">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<!-- <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
-		<class>jpa.training.entity.Student</class>
-
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<!-- <class>jpa.training.entity.Student</class> -->
 		<properties>
 			<!-- Select our SQL dialect -->
-			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<!-- JDBC Database connection settings -->
-			<property name="hibernate.connection.driver_class"
-				value="com.mysql.cj.jdbc.Driver" />
-			<property name="hibernate.connection.url"
-				value="jdbc:mysql://localhost:3306/hibernate" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/training" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="root" />
 
@@ -26,6 +22,5 @@
 			<!-- Drop and re-create the database schema on startup -->
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 		</properties>
-
 	</persistence-unit>
 </persistence>
