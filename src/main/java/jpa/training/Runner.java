@@ -16,6 +16,7 @@ public class Runner {
 //		
 		List<Student> findAll = stuRepo.findAll();
 		findAll.forEach(System.out::println);
+		System.out.println("..........");
 	}
 
 	private static void save() {
