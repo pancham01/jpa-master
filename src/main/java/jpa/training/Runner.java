@@ -9,7 +9,7 @@ public class Runner {
 	static StudentRepo stuRepo = new StudentRepo();
 	
 	public static void main(String[] args) {
-		save();
+//		save();
 		List<Student> findAll = stuRepo.findByCriteria();
 		findAll.forEach(System.out::println);
 		System.out.println("Operation completed");
@@ -17,9 +17,9 @@ public class Runner {
 	}
 
 	private static void save() {
-		Student stu1 = new Student("Gaurav",2400,24);
-		Student stu2 = new Student("Ronit",2500,25);
-		Student stu3 = new Student("Rahul",2600,26);
+		Student stu1 = new Student("Mukul",2400,24);
+		Student stu2 = new Student("Neet",2500,25);
+		Student stu3 = new Student("Heetesh",2600,26);
 		stuRepo.persist(stu1);
 		System.out.println("Successully save in db" + stu1);
 		stuRepo.persist(stu2);

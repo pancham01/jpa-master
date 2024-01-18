@@ -58,14 +58,15 @@ public class StudentRepo {
 		EntityTransaction tx = entityManager.getTransaction();
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Student> query = builder.createQuery(Student.class);
+		
 		Root<Student> stud = query.from(Student.class);
-//		query.orderBy(builder.desc(stud.get("name")));
+		query.orderBy(builder.desc(stud.get("name")));
 		
 		
-//		query.where(builder.lessThan(stud.get("id"), 2));
+//		query.where(builder.lessThan(stud.get("id"), 4));
 //		query.where(builder.between(stud.get("id"), 1, 3)) ;  
-		query.where(builder.like(stud.get("name"), "R%")); 
-		//query.where(builder.in(stud.get("id")).value(1).value(2));  
+//		query.where(builder.like(stud.get("name"), "R%")); 
+//		query.where(builder.in(stud.get("id")).value(1).value(2));  
 		System.out.println(">>>>>>>>>>>>>>> 111111111111 >>>>>>>>>>>>>");
 
 		CriteriaQuery<Student> multiselect = query.multiselect(stud.get("id"),
@@ -73,7 +74,7 @@ public class StudentRepo {
 		System.out.println(">>>>>>>>>>>>>>> 2222222222222 >>>>>>>>>>>>>");
 		TypedQuery<Student> createQuery = entityManager.createQuery(multiselect);
 		List<Student> resultList = createQuery.getResultList();
-		System.out.println("<<<<<<<<<<<<<<  findByCriteria <<<<<<<<<<<<<<");
+//		System.out.println("<<<<<<<<<<<<<<  findByCriteria <<<<<<<<<<<<<<");
 		return resultList;
 		}
 
